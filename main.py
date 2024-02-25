@@ -8,6 +8,12 @@ import time
 
 diff = "('Easy', 1) (1)"
 
+
+def draw(screen):
+    sh_open = pygame.font.SysFont('arial', 36)
+    sh_text = sh_open.render('Welcome  to  the  game  TETRIS', True, (255, 255, 255))
+    screen.blit(sh_text, (200, 300))
+
 def main():
     surface = create_example_window('Example - Simple', (800, 750))
     k = None
@@ -553,4 +559,15 @@ def main():
 
     if __name__ == '__main__':
         menu.mainloop(surface)
-main()
+
+if __name__ == '__main__':
+    pygame.init()
+    size = width, height = 800, 750
+    screen = pygame.display.set_mode(size)
+    draw(screen)
+    pygame.display.flip()
+    time.sleep(3)
+    main()
+    while pygame.event.wait().type != pygame.QUIT:
+        pass
+    pygame.quit()
